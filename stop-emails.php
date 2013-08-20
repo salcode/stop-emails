@@ -5,7 +5,7 @@
  * Description: Stops outgoing emails. Any outgoing emails will fail
  * silently (i.e. WordPress will operate as if the email was sent
  * successfully but no email will actually be sent).
- * Version: 1.0
+ * Version: 0.1.0
  * Author: Sal Ferrarello
  * Author URI: http://salferrarello.com/
  */
