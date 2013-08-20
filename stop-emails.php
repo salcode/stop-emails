@@ -3,7 +3,7 @@
  * Plugin Name: Stop Emails
  * Plugin URI: http://salferrarello.com/stop-emails-wordpress-plugin/
  * Description: Stops outgoing emails. Any outgoing emails will fail
- * silently (i.e. WordPress will operate as if the email was sent
+ * silently (i.e. WordPress will operate as if the email were sent
  * successfully but no email will actually be sent).
  * Version: 0.1.0
  * Author: Sal Ferrarello
