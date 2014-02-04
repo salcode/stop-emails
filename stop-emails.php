@@ -13,6 +13,11 @@
  * Author URI: http://salferrarello.com/
  */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+    die;
+}
+
 function fe_stop_emails( $phpmailer ) {
     // as a developer, you can enable logging all your emails
     // to the PHP error log when they are prevented from sending
