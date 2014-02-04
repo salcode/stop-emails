@@ -24,6 +24,10 @@ add_action('phpmailer_init', 'fe_stop_emails');
 // display a warning that emails are being stopped
 add_action('admin_notices', 'fe_stop_emails_warning');
 
+// Load plugin text domain
+add_action('init', 'fe_stop_emails_load_plugin_textdomain');
+
+fe_stop_emails_load_plugin_textdomain
 function fe_stop_emails( $phpmailer ) {
     // as a developer, you can enable logging all your emails
     // to the PHP error log when they are prevented from sending
@@ -77,4 +81,8 @@ function fe_stop_emails_warning() {
     echo "\n<div class='error'><p>";
     _e('<strong>Emails Disabled:</strong> The Stop Emails plugin is currently active, which will prevent any emails from being sent. To enable emails, disable the plugin.', 'stop-emails');
     echo "</p></div>";
+}
+
+function fe_stop_emails_load_plugin_textdomain() {
+
 }
