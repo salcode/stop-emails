@@ -27,7 +27,6 @@ add_action('admin_notices', 'fe_stop_emails_warning');
 // Load plugin text domain
 add_action('init', 'fe_stop_emails_load_plugin_textdomain');
 
-fe_stop_emails_load_plugin_textdomain
 function fe_stop_emails( $phpmailer ) {
     // as a developer, you can enable logging all your emails
     // to the PHP error log when they are prevented from sending
