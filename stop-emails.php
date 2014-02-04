@@ -11,6 +11,8 @@
  * Version: 0.2.0
  * Author: Sal Ferrarello
  * Author URI: http://salferrarello.com/
+ * Text Domain: stop-emails
+ * Domain Path: /languages
  */
 
 // If this file is called directly, abort.
