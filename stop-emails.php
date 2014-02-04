@@ -78,7 +78,10 @@ function fe_stop_emails( $phpmailer ) {
 
 function fe_stop_emails_warning() {
     echo "\n<div class='error'><p>";
-    _e('<strong>Emails Disabled:</strong> The Stop Emails plugin is currently active, which will prevent any emails from being sent. To enable emails, disable the plugin.', 'stop-emails');
+        echo "<strong>";
+        _e('Emails Disabled:', 'stop-emails');
+        echo "</strong>";
+        _e('The Stop Emails plugin is currently active, which will prevent any emails from being sent. To enable emails, disable the plugin.', 'stop-emails');
     echo "</p></div>";
 }
 
