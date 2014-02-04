@@ -83,5 +83,8 @@ function fe_stop_emails_warning() {
 }
 
 function fe_stop_emails_load_plugin_textdomain() {
+    $domain = 'stop-emails';
+    $plugin_rel_path = dirname(plugin_basename(__FILE__)) . '/languages';
 
+    load_plugin_textdomain( $domain, false, $plugin_rel_path );
 }
