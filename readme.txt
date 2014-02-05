@@ -2,8 +2,8 @@
 Contributors: salcode
 Tags: email, development
 Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 0.2.0
+Tested up to: 3.8.1
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ add_filter('fe_stop_emails_log_email', '__return_true');
 
 == Changelog ==
 
+= 0.3.0 =
+* Added support for localization
+
 = 0.2.0 =
 * Added filter `fe_stop_emails_log_email` for $log_email value, which allows a programmer to add code to
 log the blocked emails in the php_error.log
@@ -65,6 +68,10 @@ log the blocked emails in the php_error.log
 * First release
 
 == Upgrade Notice ==
+
+= 0.3.0 =
+No significant change in functionality.
+Added support for localization but no additional languages added.
 
 = 0.2.0 =
 No significant change in functionality.
