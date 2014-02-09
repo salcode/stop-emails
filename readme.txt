@@ -57,7 +57,7 @@ add_filter('fe_stop_emails_log_email', '__return_true');
 == Changelog ==
 
 = 0.4.0 =
-* Add spanish translation (es_ES), thanks to Andrew Kurtis from webhostinghub.com
+* Add Spanish translation (es_ES), thanks to Andrew Kurtis from webhostinghub.com
 
 = 0.3.0 =
 * Added support for localization
@@ -71,6 +71,9 @@ log the blocked emails in the php_error.log
 * First release
 
 == Upgrade Notice ==
+
+= 0.4.0 =
+Add Spanish translation (es_ES)
 
 = 0.3.0 =
 No significant change in functionality.
