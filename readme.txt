@@ -3,7 +3,7 @@ Contributors: salcode
 Tags: email, development
 Requires at least: 3.6
 Tested up to: 3.8.1
-Stable tag: 0.3.0
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,9 @@ add_filter('fe_stop_emails_log_email', '__return_true');
 1. Lies! The email wasn't really sent, we're running Stop Emails
 
 == Changelog ==
+
+= 0.4.0 =
+* Add spanish translation (es_ES), thanks to Andrew Kurtis from webhostinghub.com
 
 = 0.3.0 =
 * Added support for localization
