@@ -33,7 +33,8 @@ function fe_stop_emails( $phpmailer ) {
     // as a developer, you can enable logging all your emails
     // to the PHP error log when they are prevented from sending
     // in the future, this will be a setting for the plugin
-    $log_email = apply_filters('fe_stop_emails_log_email', false);
+    $log_email = get_option( 'fe_stop_emails_log_email' );
+    $log_email = apply_filters( 'fe_stop_emails_log_email', $log_email );
 
     if ( !class_exists('Fe_Stop_Emails_Fake_PHPMailer') ) {
 
