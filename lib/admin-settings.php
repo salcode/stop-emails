@@ -8,8 +8,13 @@
 // Add a menu for our option page
 add_action('admin_menu', 'fe_stop_emails_add_page');
 function fe_stop_emails_add_page() {
-	add_options_page( 'Stop Emails', 'Stop Emails', 'manage_options', 'fe_stop_emails', 'fe_stop_emails_option_page' );
-
+	add_options_page(
+        __( 'Stop Emails', 'stop-emails' ),
+        __( 'Stop Emails', 'stop-emails' ),
+        'manage_options',
+        'fe_stop_emails',
+        'fe_stop_emails_option_page'
+    );
 }
 
 // Draw the option page
@@ -39,13 +44,13 @@ function fe_stop_emails_admin_init(){
 	);
 	add_settings_section(
 		'fe_stop_emails_main',
-		'Email Logging',
+		__( 'Email Logging', 'stop-emails' ),
 		'fe_stop_emails_section_text',
 		'fe_stop_emails'
 	);
 	add_settings_field(
 		'log-email',
-		'Log Emails',
+		__( 'Log Emails', 'stop-emails' ),
 		'fe_stop_emails_setting_radio_btn',
 		'fe_stop_emails',
 		'fe_stop_emails_main'
@@ -53,8 +58,10 @@ function fe_stop_emails_admin_init(){
 }
 
 // Draw the section header
-function fe_stop_emails_section_text() {
-	echo '<p>Enter your settings here.</p>';
+function fe_stop_emails_section_text() {    
+    echo '<p>';
+        _e( 'The Stop Emails plugin has the option to log stopped emails to the PHP error log.', 'stop-emails');
+    echo '</p>';
 }
 
 // Display and fill the form field
@@ -68,12 +75,23 @@ function fe_stop_emails_setting_radio_btn() {
     }
 
     $html = '';
-    $html .=  '<input type="radio" id="fe_stop_emails_log_email_false" name="fe_stop_emails_options[log-email]" value="0"' . checked( 0, $log_emails, false ) . '/>';
-    $html .= '<label for="fe_stop_emails_log_email_false">Disabled (default)</label>';
+    $html .= '<fieldset>';
 
-    $html .= '<input type="radio" id="fe_stop_emails_log_email_true" name="fe_stop_emails_options[log-email]" value="1"' . checked( 1, $log_emails, false ) . '/>';
-    $html .= '<label for="fe_stop_emails_log_email_true">Enabled</label>';
+        $html .= '<p>';
+        $html .= '<label for="fe_stop_emails_log_email_false">';
+            $html .=  '<input type="radio" id="fe_stop_emails_log_email_false" name="fe_stop_emails_options[log-email]" value="0"' . checked( 0, $log_emails, false ) . '/>';
+        $html .= __( 'Disable Logging', 'stop-emails' );
+        $html .= '</label>';
+        $html .= '</p>';
 
+        $html .= '<p>';
+        $html .= '<label for="fe_stop_emails_log_email_true">';
+            $html .= '<input type="radio" id="fe_stop_emails_log_email_true" name="fe_stop_emails_options[log-email]" value="1"' . checked( 1, $log_emails, false ) . '/>';
+        $html .= __( 'Log stopped emails to the PHP Error Log', 'stop-emails' );
+        $html .= '</label>';
+        $html .= '</p>';
+
+    $html .= '</fieldset>';
     echo $html;
 }
 
