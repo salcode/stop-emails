@@ -2,7 +2,7 @@
 /*
  * Admin Settings Page for Stop Emails Plugin
  * Value set is
- * @fe_stop_emails_log_email a bool value
+ * @fe_stop_emails_options a serialized array
  */
 
 // Add a menu for our option page
@@ -58,7 +58,7 @@ function fe_stop_emails_admin_init(){
 }
 
 // Draw the section header
-function fe_stop_emails_section_text() {    
+function fe_stop_emails_section_text() {
     echo '<p>';
         _e( 'The Stop Emails plugin has the option to log stopped emails to the PHP error log.', 'stop-emails');
     echo '</p>';
