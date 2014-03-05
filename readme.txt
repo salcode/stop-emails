@@ -18,6 +18,8 @@ but no email will actually be sent).
 NOTE: If using the PHP mail() function directly, this
 plugin will NOT stop the emails.
 
+Built by <a href="//twitter.com/salcode">@salcode</a> / <a rel="author" href="https://plus.google.com/100823173217716320069">Sal Ferrarello</a>
+
 == Installation ==
 
 1. Install plugin from WordPress plugin repository http://wordpress.org/plugins/
