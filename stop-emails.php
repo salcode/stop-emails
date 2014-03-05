@@ -79,6 +79,7 @@ function fe_stop_emails( $phpmailer ) {
                 $log_entry .= 'From: ' . $phpmailer->From . "\n";
                 $log_entry .= 'Subject: ' . $phpmailer->Subject . "\n";
                 $log_entry .= $phpmailer->Body . "\n";
+                error_log( $log_entry );
 
             } // LogEmail()
         } // class Fe_Stop_Emails_Fake_PHPMailer
