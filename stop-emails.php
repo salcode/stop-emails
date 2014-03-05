@@ -19,6 +19,12 @@
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
+
+// run tasks on deactivate
+include('lib/deactivate.php');
+register_deactivation_hook( __FILE__, 'fe_stop_emails_deactivate' );
+
+// create admin settings screen
 include('lib/admin-settings.php');
 
 // stop emails
