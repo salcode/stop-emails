@@ -31,10 +31,22 @@ add_action('admin_notices', 'fe_stop_emails_warning');
 add_action('init', 'fe_stop_emails_load_plugin_textdomain');
 
 function fe_stop_emails( $phpmailer ) {
+    // retrieve set options
+    $options = get_option( 'fe_stop_emails_options' );
+
+    // set $log_email based on saved options
+    // default to zero
+    if ( $options && isset( $options['log-email'] ) ) {
+        // use value from options
+        $log_email = $options['log-email'];
+    } else {
+        // default value
+        $log_email = 0;
+    }
+
+    // apply filter to log_email value
     // as a developer, you can enable logging all your emails
     // to the PHP error log when they are prevented from sending
-    // in the future, this will be a setting for the plugin
-    $log_email = get_option( 'fe_stop_emails_log_email' );
     $log_email = apply_filters( 'fe_stop_emails_log_email', $log_email );
 
     if ( !class_exists('Fe_Stop_Emails_Fake_PHPMailer') ) {
@@ -68,7 +80,6 @@ function fe_stop_emails( $phpmailer ) {
                 $log_entry .= 'Subject: ' . $phpmailer->Subject . "\n";
                 $log_entry .= $phpmailer->Body . "\n";
 
-                error_log($log_entry);
             } // LogEmail()
         } // class Fe_Stop_Emails_Fake_PHPMailer
     } // if class Fe_Stop_Emails_Fake_PHPMailer does not already exist
