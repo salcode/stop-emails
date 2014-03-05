@@ -15,6 +15,12 @@ Stops outgoing emails sent using wp_mail() function.
 Any calls to wp_mail() will fail silently (i.e. WordPress
 will operate as if the email were sent successfully
 but no email will actually be sent).
+
+On the admin menu page Settings > Stop Emails, there is the option
+to log all emails to the PHP error log.  By default this logging is
+disabled.
+
+
 NOTE: If using the PHP mail() function directly, this
 plugin will NOT stop the emails.
 
@@ -45,11 +51,9 @@ doing to cause emails to still be sent.
 2. The plugin is calling the PHP function mail() directly.
 Unfortunately in either of these cases, this plugin will not help you.
 
-= I'm a developer and I want to log the emails that are stopped =
-You can log stopped emails in
-php_error.log using the filter 'fe_stop_emails_log_email'
-
-add_filter('fe_stop_emails_log_email', '__return_true');
+= I want to log the emails that are stopped =
+You can enable logging of stopped emails on the
+admin menu page Settings > Stop Emails
 
 == Screenshots ==
 
@@ -57,6 +61,10 @@ add_filter('fe_stop_emails_log_email', '__return_true');
 1. Lies! The email wasn't really sent, we're running Stop Emails
 
 == Changelog ==
+
+= 0.6.0 =
+* Add admin settings page with option to enable logging of stopped emails to
+PHP error log
 
 = 0.5.0 =
 * Correct breaking change
