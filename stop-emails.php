@@ -19,6 +19,7 @@
 if ( ! defined( 'WPINC' ) ) {
     die;
 }
+include('lib/admin-settings.php');
 
 // stop emails
 add_action('phpmailer_init', 'fe_stop_emails');
