@@ -31,23 +31,8 @@ add_action('admin_notices', 'fe_stop_emails_warning');
 add_action('init', 'fe_stop_emails_load_plugin_textdomain');
 
 function fe_stop_emails( $phpmailer ) {
-    // retrieve set options
-    $options = get_option( 'fe_stop_emails_options' );
 
-    // set $log_email based on saved options
-    // default to zero
-    if ( $options && isset( $options['log-email'] ) ) {
-        // use value from options
-        $log_email = $options['log-email'];
-    } else {
-        // default value
-        $log_email = 0;
-    }
-
-    // apply filter to log_email value
-    // as a developer, you can enable logging all your emails
-    // to the PHP error log when they are prevented from sending
-    $log_email = apply_filters( 'fe_stop_emails_log_email', $log_email );
+    $log_email = fe_stop_emails_will_log_emails();
 
     if ( !class_exists('Fe_Stop_Emails_Fake_PHPMailer') ) {
 
@@ -90,6 +75,28 @@ function fe_stop_emails( $phpmailer ) {
     // stop emails
     $phpmailer = new Fe_Stop_Emails_Fake_PHPMailer();
 
+}
+
+function fe_stop_emails_will_log_emails() {
+    // retrieve set options
+    $options = get_option( 'fe_stop_emails_options' );
+
+    // set $log_email based on saved options
+    // default to zero
+    if ( $options && isset( $options['log-email'] ) ) {
+        // use value from options
+        $log_email = $options['log-email'];
+    } else {
+        // default value
+        $log_email = 0;
+    }
+
+    // apply filter to log_email value
+    // as a developer, you can enable logging all your emails
+    // to the PHP error log when they are prevented from sending
+    $log_email = apply_filters( 'fe_stop_emails_log_email', $log_email );
+
+    return $log_email;
 }
 
 function fe_stop_emails_warning() {
