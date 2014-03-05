@@ -102,9 +102,16 @@ function fe_stop_emails_will_log_emails() {
 function fe_stop_emails_warning() {
     echo "\n<div class='error'><p>";
         echo "<strong>";
-        _e('Emails Disabled:', 'stop-emails');
+        if ( fe_stop_emails_will_log_emails() ) {
+            _e('Logging Disabled Emails', 'stop-emails');
+        } else {
+            _e('Emails Disabled', 'stop-emails');
+        }
+        echo ': ';
         echo "</strong>";
-        _e('The Stop Emails plugin is currently active, which will prevent any emails from being sent. To enable emails, disable the plugin.', 'stop-emails');
+
+        _e( 'The Stop Emails plugin is currently active, which will prevent any emails from being sent.  ', 'stop-emails' );
+        _e( 'To send emails, disable the plugin.', 'stop-emails');
     echo "</p></div>";
 }
 
