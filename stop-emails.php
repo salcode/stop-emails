@@ -58,7 +58,8 @@ function fe_stop_emails( $phpmailer ) {
             // an instance of $phpmailer
             public static function LogEmail( $phpmailer ) {
                 $log_entry = "\n";
-                $log_entry .= 'To: ';
+
+                $log_entry .= __( 'To: ', 'stop-emails' );
                 foreach ($phpmailer->to as $toArray) {
                     foreach ($toArray as $to) {
                         if ( is_string($to) && trim($to) ) {
@@ -67,8 +68,13 @@ function fe_stop_emails( $phpmailer ) {
                     }
                 } // foreach
                 $log_entry .= "\n";
-                $log_entry .= 'From: ' . $phpmailer->From . "\n";
-                $log_entry .= 'Subject: ' . $phpmailer->Subject . "\n";
+
+                $log_entry .= __( 'From: ', 'stop-emails' );
+                $log_entry .= $phpmailer->From . "\n";
+
+                $log_entry .= __( 'Subject: ', 'stop-emails' );
+                $log_entry .= $phpmailer->Subject . "\n";
+
                 $log_entry .= $phpmailer->Body . "\n";
                 error_log( $log_entry );
 
