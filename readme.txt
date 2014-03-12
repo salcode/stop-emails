@@ -85,6 +85,9 @@ log the blocked emails in the php_error.log
 
 == Upgrade Notice ==
 
+= 0.6.0 =
+Add admin Settings > Stop Emails page with option to log stopped emails in PHP error log.
+
 = 0.5.0 =
 Important - fixes breaking change in 0.4.0
 
