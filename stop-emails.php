@@ -8,7 +8,7 @@
  * but no email will actually be sent).
  * NOTE: If using the PHP mail() function directly, this
  * plugin will NOT stop the emails.
- * Version: 0.6.1
+ * Version: 0.6.2
  * Author: Sal Ferrarello
  * Author URI: http://salferrarello.com/
  * Text Domain: stop-emails
