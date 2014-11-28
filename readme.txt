@@ -2,8 +2,8 @@
 Contributors: salcode
 Tags: email, development
 Requires at least: 3.6
-Tested up to: 4.0
-Stable tag: 0.6.2
+Tested up to: 4.0.1
+Stable tag: 0.7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,9 @@ admin menu page Settings > Stop Emails
 
 == Changelog ==
 
+= 0.7.0 =
+* Added filter fe_stop_emails_log to allow other logging of blocked emails
+
 = 0.6.2 =
 * "Tested Up To:" version bump to 4.0
 * Add plugin icons
@@ -93,6 +96,9 @@ log the blocked emails in the php_error.log
 * First release
 
 == Upgrade Notice ==
+
+= 0.7.0 =
+Minor update that adds support for extended logging.  See [Stop Emails Logger](https://github.com/salcode/stop-emails-logger).
 
 = 0.6.2 =
 Minor update. "Tested to" version bump to 4.0 and added plugin icons
