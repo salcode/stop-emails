@@ -89,6 +89,8 @@ function fe_stop_emails( $phpmailer ) {
 
     if ( $log_email ) { Fe_Stop_Emails_Fake_PHPMailer::LogEmail( $phpmailer ); }
 
+    apply_filters( 'fe_stop_emails_log', $phpmailer );
+
     // stop emails
     $phpmailer = new Fe_Stop_Emails_Fake_PHPMailer();
 
