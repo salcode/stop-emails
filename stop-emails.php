@@ -22,12 +22,19 @@ if ( ! defined( 'WPINC' ) ) {
 
 $plugin_basename_path = plugin_basename(__FILE__);
 
-// run tasks on deactivate
-include('lib/deactivate.php');
-register_deactivation_hook( __FILE__, 'fe_stop_emails_deactivate' );
+if ( file_exists( 'lib/deactivate.php' ) ) {
+    // run tasks on deactivate
+    include('lib/deactivate.php');
+    register_deactivation_hook( __FILE__, 'fe_stop_emails_deactivate' );
+}
 
-// create admin settings screen
-include('lib/admin-settings.php');
+if ( file_exists( 'lib/admin-settings.php' ) ) {
+    // create admin settings screen
+    include('lib/admin-settings.php');
+
+    // Add Settings link on Plugin Page
+    add_filter("plugin_action_links_$plugin_basename_path", 'fe_stop_emails_settings_link_on_plugin_page' );
+}
 
 // stop emails
 add_action('phpmailer_init', 'fe_stop_emails');
@@ -37,9 +44,6 @@ add_action('admin_notices', 'fe_stop_emails_warning');
 
 // Load plugin text domain
 add_action('init', 'fe_stop_emails_load_plugin_textdomain');
-
-// Add Settings link on Plugin Page
-add_filter("plugin_action_links_$plugin_basename_path", 'fe_stop_emails_settings_link_on_plugin_page' );
 
 function fe_stop_emails( $phpmailer ) {
 
