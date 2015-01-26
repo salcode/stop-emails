@@ -58,8 +58,15 @@ doing to cause emails to still be sent.
 Unfortunately in either of these cases, this plugin will not help you.
 
 = I want to log the emails that are stopped =
+
 You can enable logging of stopped emails on the
 admin menu page Settings > Stop Emails
+
+= Why would I want install in the mu-plugins directory? =
+Activating a plugin normally, requires logging into the site.
+Installing the file in the mu-plugins directory allows you to
+activate the plugin without logging in.  Personally, I find
+this helpful when setting up an existing site locally.
 
 == Screenshots ==
 
