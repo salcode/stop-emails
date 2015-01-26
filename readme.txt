@@ -3,7 +3,7 @@ Contributors: salcode
 Tags: email, development
 Requires at least: 3.6
 Tested up to: 4.0.1
-Stable tag: 0.7.0
+Stable tag: 0.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,11 @@ admin menu page Settings > Stop Emails
 1. Lies! The email wasn't really sent, we're running Stop Emails
 
 == Changelog ==
+
+= 0.7.1 =
+* Added check for supporting files before loading them.  Since the primary functionality
+is in stop-emails.php, adding this check allows stop-emails.php to be used in the
+mu-plugins/ directory (previously, it would throw warnings)
 
 = 0.7.0 =
 * Added filter fe_stop_emails_log to allow other logging of blocked emails
