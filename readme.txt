@@ -37,6 +37,11 @@ Built by <a href="//twitter.com/salcode">@salcode</a> / <a rel="author" href="ht
 1. Upload the entire `stop-emails` directory to the `/wp-content/plugins/` directory.
 2. Activate Stop Emails through the 'Plugins' menu in WordPress.
 
+= mu-plugin Installation
+
+1.  If the directory `wp-content/mu-plugins/` does not exist, create it.
+2.  Upload the file `stop-emails.php` to the  `wp-content/mu-plugins/` directory
+
 == Frequently Asked Questions ==
 
 = Where do the emails go? =
