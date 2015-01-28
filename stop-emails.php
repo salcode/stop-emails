@@ -123,6 +123,29 @@ class Fe_Stop_Emails {
 
 		return $obj;
 	}
+
+	/**
+	 * Should emails be logged to the PHP error log
+	 *
+	 * @since 0.8.0
+	 *
+	 * @return bool
+	 */
+	public function should_emails_be_logged_to_php_error_log() {
+		$options = get_option( 'fe_stop_emails_options' );
+
+		if ( $options && isset( $options['log-email'] ) ) {
+			// use value from options
+			$log_to_error_log = $options['log-email'];
+		} else {
+			// default value
+			$log_to_error_log = 0;
+		}
+
+		$log_to_error_log = apply_filters( 'fe_stop_emails_log_email', $log_to_error_log );
+
+		return (bool) $log_to_error_log;
+	}
 }
 
 new Fe_Stop_Emails;
