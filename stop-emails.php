@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// load PHPMailer class, so we can sub-class it
+// load PHPMailer class, so we can subclass it
 require_once ABSPATH . WPINC . '/class-phpmailer.php';
 
 /**
@@ -72,7 +72,7 @@ class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
  *
  * Prevents emails from being sent and provides basic logging.
  * Replaces PHPMailer global instance $phpmailer with an instance
- * of the sub-class Fe_Stop_Emails_Fake_PHPMailer
+ * of the subclass Fe_Stop_Emails_Fake_PHPMailer
  *
  * @since 0.8.0
  */
@@ -100,9 +100,8 @@ class Fe_Stop_Emails {
 	 *
 	 * @since 0.8.0
 	 *
-	 * @return Fe_Stop_Emails_Fake_PHPMailer instance, the object that
-	 *                                                 replaced the
-	 *                                                 global $phpmailer
+	 * @return Fe_Stop_Emails_Fake_PHPMailer instance, the object that replaced
+	 *                                                 the global $phpmailer
 	 */
 	public function replace_phpmailer() {
 		global $phpmailer;
