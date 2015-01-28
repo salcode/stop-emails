@@ -77,19 +77,47 @@ class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
  * @since 0.8.0
  */
 class Fe_Stop_Emails {
+	/**
+	 * Constuctor to setup plugin
+	 *
+	 * @since 0.8.0
+	 */
 	public function __construct() {
 		$this->add_hooks();
 	}
 
+	/**
+	 * Add hooks
+	 *
+	 * @since 0.8.0
+	 */
 	public function add_hooks() {
 		add_action( 'plugins_loaded', array( $this, 'replace_phpmailer' ) );
 	}
 
-	public function replace_phpmailer( $phpmailer ) {
+	/**
+	 * Replace the global $phpmailer with fake phpmailer
+	 *
+	 * @since 0.8.0
+	 *
+	 * @return Fe_Stop_Emails_Fake_PHPMailer instance, the object that
+	 *                                                 replaced the
+	 *                                                 global $phpmailer
+	 */
+	public function replace_phpmailer() {
 		global $phpmailer;
 		return $this->replace_w_fake_phpmailer( $phpmailer );
 	}
 
+	/**
+	 * Replace the parameter object with an instance of
+	 * Fe_Stop_Emails_Fake_PHPMailer
+	 *
+	 * @since 0.8.0
+	 *
+	 * @param PHPMailer $obj
+	 * @return Fe_Stop_Emails_Fake_PHPMailer $obj
+	 */
 	public function replace_w_fake_phpmailer( &$obj = null ) {
 		$obj = new Fe_Stop_Emails_Fake_PHPMailer;
 
