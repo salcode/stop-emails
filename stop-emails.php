@@ -208,6 +208,16 @@ class Fe_Stop_Emails {
 		echo "</p></div>";
 	}
 
+	/**
+	 * Create Settings Page.
+	 *
+	 * The settings page is created in lib/admin-settings.php.
+	 * We include a check that this file exists, so we can
+	 * run this plugin with only this primary file; this
+	 * allows use as a "mu-plugins" plugin.
+	 *
+	 * @since 0.8.0
+	 */
 	public function settings_page() {
 		$plugin_dir_path = plugin_dir_path(__FILE__);
 		$plugin_basename = plugin_basename(__FILE__);
@@ -221,6 +231,17 @@ class Fe_Stop_Emails {
 		}
 	}
 
+	/**
+	 * Add a settings link to links for this plugin on the plugin page
+	 *
+	 * Add to the $links array, an element that contains the html markup
+	 * for the settings page for this link.
+	 *
+	 * @since 0.8.0
+	 * @param array of strings, each of which is the markup for a link
+	 * @return array of strings, each of which is the markup for a link
+	 *                           with additional link
+	 */
 	public function settings_link_on_plugin_page( $links ) {
 		$links[] = '<a href="' .
 			admin_url( 'options-general.php?page=fe_stop_emails' ) .
