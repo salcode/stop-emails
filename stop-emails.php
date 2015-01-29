@@ -31,7 +31,7 @@ require_once ABSPATH . WPINC . '/class-phpmailer.php';
  * This subclass of PHPMailer replaces the send() method
  * with a method that does not send.
  * This subclass is based on the WP Core MockPHPMailer
- * subclass found in phpunit/includes/mock-mailer.php
+ * found in phpunit/includes/mock-mailer.php
  *
  * @since 0.8.0
  * @see PHPMailer
@@ -94,7 +94,6 @@ class Fe_Stop_Emails {
 		$this->add_hooks();
 
 		$this->settings_page();
-
 	}
 
 	/**
@@ -106,7 +105,7 @@ class Fe_Stop_Emails {
 		add_action( 'plugins_loaded', array( $this, 'replace_phpmailer' ) );
 		add_action( 'fe_stop_emails_log', array( $this, 'log_to_php_error_log' ) );
 		add_action( 'admin_notices', array( $this, 'warning' ) );
-		add_action('init', array( $this, 'load_textdomain' ) );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 	}
 
 	/**
@@ -175,7 +174,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Convert email to text.
+	 * Convert mock email to text.
 	 *
 	 * @since 0.8.0
 	 *
@@ -187,7 +186,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Display Warning the emails are being stopped.
+	 * Display Warning that emails are being stopped.
 	 *
 	 * Display admin notice warning that emails are being
 	 * stopped, additionally if emails are being logged
@@ -218,7 +217,7 @@ class Fe_Stop_Emails {
 	 * The settings page is created in lib/admin-settings.php.
 	 * We include a check that this file exists, so we can
 	 * run this plugin with only this primary file; this
-	 * allows use as a "mu-plugins" plugin.
+	 * allows using this single file as an "mu-plugins" plugin.
 	 *
 	 * @since 0.8.0
 	 */
@@ -228,10 +227,10 @@ class Fe_Stop_Emails {
 
 		if ( file_exists( "{$plugin_dir_path}lib/admin-settings.php" ) ) {
 			// create admin settings screen
-			require_once("{$plugin_dir_path}lib/admin-settings.php");
+			require_once( "{$plugin_dir_path}lib/admin-settings.php" );
 
 			// Add Settings link on Plugin Page
-			add_filter("plugin_action_links_$plugin_basename", array( $this, 'settings_link_on_plugin_page' ) );
+			add_filter( "plugin_action_links_$plugin_basename", array( $this, 'settings_link_on_plugin_page' ) );
 		}
 	}
 
@@ -249,7 +248,7 @@ class Fe_Stop_Emails {
 	public function settings_link_on_plugin_page( $links ) {
 		$links[] = '<a href="' .
 			admin_url( 'options-general.php?page=fe_stop_emails' ) .
-			'">' . __('Settings') . '</a>';
+			'">' . __( 'Settings' ) . '</a>';
 		return $links;
 	}
 
@@ -260,7 +259,7 @@ class Fe_Stop_Emails {
 	 */
 	public function load_textdomain() {
 		$domain = 'stop-emails';
-		$plugin_rel_path = dirname(plugin_basename(__FILE__)) . '/languages';
+		$plugin_rel_path = dirname( plugin_basename(__FILE__) ) . '/languages';
 
 		load_plugin_textdomain( $domain, false, $plugin_rel_path );
 	}

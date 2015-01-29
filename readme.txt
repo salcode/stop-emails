@@ -40,7 +40,7 @@ Built by <a href="//twitter.com/salcode">@salcode</a> / <a rel="author" href="ht
 = mu-plugin Installation
 
 1.  If the directory `wp-content/mu-plugins/` does not exist, create it.
-2.  Upload the file `stop-emails.php` to the  `wp-content/mu-plugins/` directory
+2.  Upload the single file `stop-emails.php` to the  `wp-content/mu-plugins/` directory
 
 == Frequently Asked Questions ==
 
@@ -63,10 +63,10 @@ You can enable logging of stopped emails on the
 admin menu page Settings > Stop Emails
 
 = Why would I want install in the mu-plugins directory? =
-Activating a plugin normally, requires logging into the site.
+Activating a plugin normally requires logging into the site.
 Installing the file in the mu-plugins directory allows you to
-activate the plugin without logging in.  Personally, I find
-this helpful when setting up an existing site locally.
+activate the plugin without logging in.  This can be
+helpful when setting up an existing site locally.
 
 == Screenshots ==
 
