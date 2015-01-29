@@ -228,7 +228,7 @@ class Fe_Stop_Emails {
 
 		if ( file_exists( "{$plugin_dir_path}lib/admin-settings.php" ) ) {
 			// create admin settings screen
-			include("{$plugin_dir_path}lib/admin-settings.php");
+			require_once("{$plugin_dir_path}lib/admin-settings.php");
 
 			// Add Settings link on Plugin Page
 			add_filter("plugin_action_links_$plugin_basename", array( $this, 'settings_link_on_plugin_page' ) );
