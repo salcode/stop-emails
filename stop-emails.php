@@ -100,6 +100,7 @@ class Fe_Stop_Emails {
 	public function add_hooks() {
 		add_action( 'plugins_loaded', array( $this, 'replace_phpmailer' ) );
 		add_action( 'fe_stop_emails_log', array( $this, 'log_to_php_error_log' ) );
+		add_action( 'admin_notices', array( $this, 'warning' ) );
 	}
 
 	/**
@@ -178,6 +179,33 @@ class Fe_Stop_Emails {
 	public function mock_email_to_text( $mock_email ) {
 		return print_r( $mock_email, true );
 	}
+
+	/**
+	 * Display Warning the emails are being stopped.
+	 *
+	 * Display admin notice warning that emails are being
+	 * stopped, additionally if emails are being logged
+	 * in the PHP error_log, it is noted that emails are
+	 * being logged.
+	 *
+	 * @since 0.8.0
+	 */
+	public function warning() {
+		echo "\n<div class='error'><p>";
+		echo "<strong>";
+		if ( $this->should_emails_be_logged_to_php_error_log() ) {
+			_e('Logging Disabled Emails', 'stop-emails');
+		} else {
+			_e('Emails Disabled', 'stop-emails');
+		}
+		echo ': ';
+		echo "</strong>";
+
+		_e( 'The Stop Emails plugin is currently active, which will prevent any emails from being sent.  ', 'stop-emails' );
+		_e( 'To send emails, disable the plugin.', 'stop-emails');
+		echo "</p></div>";
+	}
+
 }
 
 new Fe_Stop_Emails;
