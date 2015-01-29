@@ -99,6 +99,7 @@ class Fe_Stop_Emails {
 	 */
 	public function add_hooks() {
 		add_action( 'plugins_loaded', array( $this, 'replace_phpmailer' ) );
+		add_action( 'fe_stop_emails_log', array( $this, 'log_to_php_error_log' ) );
 	}
 
 	/**
@@ -150,6 +151,32 @@ class Fe_Stop_Emails {
 		$log_to_error_log = apply_filters( 'fe_stop_emails_log_email', $log_to_error_log );
 
 		return (bool) $log_to_error_log;
+	}
+
+	/**
+	 * Hooked function for email logging
+	 *
+	 * Checks if email should be logged and logs it if necessary
+	 *
+	 * @since 0.8.0
+	 */
+	public function log_to_php_error_log( $mock_email ) {
+		if ( $this->should_emails_be_logged_to_php_error_log() ) {
+			$text = $this->mock_email_to_text( $mock_email );
+			error_log( $text );
+		}
+	}
+
+	/**
+	 * Convert email to text
+	 *
+	 * @since 0.8.0
+	 *
+	 * @param Fe_Stop_Emails_Fake_PHPMailer $fake_phpmailer
+	 * @return string, text version of email
+	 */
+	public function mock_email_to_text( $mock_email ) {
+		return print_r( $mock_email, true );
 	}
 }
 
