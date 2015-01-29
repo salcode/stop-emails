@@ -76,7 +76,7 @@ class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
 }
 
 /**
- * Stop Emails Plugin
+ * Stop Emails Plugin Class.
  *
  * Prevents emails from being sent and provides basic logging.
  * Replaces PHPMailer global instance $phpmailer with an instance
@@ -86,7 +86,7 @@ class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
  */
 class Fe_Stop_Emails {
 	/**
-	 * Constuctor to setup plugin
+	 * Constuctor to setup plugin.
 	 *
 	 * @since 0.8.0
 	 */
@@ -98,7 +98,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Add hooks
+	 * Add hooks.
 	 *
 	 * @since 0.8.0
 	 */
@@ -110,7 +110,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Replace the global $phpmailer with fake phpmailer
+	 * Replace the global $phpmailer with fake phpmailer.
 	 *
 	 * @since 0.8.0
 	 *
@@ -124,7 +124,7 @@ class Fe_Stop_Emails {
 
 	/**
 	 * Replace the parameter object with an instance of
-	 * Fe_Stop_Emails_Fake_PHPMailer
+	 * Fe_Stop_Emails_Fake_PHPMailer.
 	 *
 	 * @since 0.8.0
 	 *
@@ -138,7 +138,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Should emails be logged to the PHP error log
+	 * Should emails be logged to the PHP error log.
 	 *
 	 * @since 0.8.0
 	 *
@@ -161,7 +161,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Hooked function for email logging
+	 * Hooked function for email logging.
 	 *
 	 * Checks if email should be logged and logs it if necessary
 	 *
@@ -175,7 +175,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Convert email to text
+	 * Convert email to text.
 	 *
 	 * @since 0.8.0
 	 *
@@ -236,7 +236,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Add a settings link to links for this plugin on the plugin page
+	 * Add a settings link to links for this plugin on the plugin page.
 	 *
 	 * Add to the $links array, an element that contains the html markup
 	 * for the settings page for this link.
@@ -254,7 +254,7 @@ class Fe_Stop_Emails {
 	}
 
 	/**
-	 * Load textdomain for translations
+	 * Load textdomain for translations.
 	 *
 	 * @since 0.8.0
 	 */
@@ -265,6 +265,13 @@ class Fe_Stop_Emails {
 		load_plugin_textdomain( $domain, false, $plugin_rel_path );
 	}
 
+	/**
+	 * On plugin deactivation clean up.
+	 *
+	 * Remove the plugin option, where settings are stored
+	 *
+	 * @since 0.8.0
+	 */
 	public static function on_deactivation() {
 		delete_option( 'fe_stop_emails_options' );
 	}
