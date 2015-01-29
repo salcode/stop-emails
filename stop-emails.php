@@ -20,6 +20,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+register_deactivation_hook( __FILE__, array( 'Fe_Stop_Emails', 'on_deactivation' ) );
+
 // load PHPMailer class, so we can subclass it
 require_once ABSPATH . WPINC . '/class-phpmailer.php';
 
@@ -261,6 +263,10 @@ class Fe_Stop_Emails {
 		$plugin_rel_path = dirname(plugin_basename(__FILE__)) . '/languages';
 
 		load_plugin_textdomain( $domain, false, $plugin_rel_path );
+	}
+
+	public static function on_deactivation() {
+		delete_option( 'fe_stop_emails_options' );
 	}
 }
 
