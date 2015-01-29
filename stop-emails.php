@@ -90,6 +90,8 @@ class Fe_Stop_Emails {
 	 */
 	public function __construct() {
 		$this->add_hooks();
+
+		$this->settings_page();
 	}
 
 	/**
@@ -206,6 +208,25 @@ class Fe_Stop_Emails {
 		echo "</p></div>";
 	}
 
+	public function settings_page() {
+		$plugin_dir_path = plugin_dir_path(__FILE__);
+		$plugin_basename = plugin_basename(__FILE__);
+
+		if ( file_exists( "{$plugin_dir_path}lib/admin-settings.php" ) ) {
+			// create admin settings screen
+			include("{$plugin_dir_path}lib/admin-settings.php");
+
+			// Add Settings link on Plugin Page
+			add_filter("plugin_action_links_$plugin_basename", array( $this, 'settings_link_on_plugin_page' ) );
+		}
+	}
+
+	public function settings_link_on_plugin_page( $links ) {
+		$links[] = '<a href="' .
+			admin_url( 'options-general.php?page=fe_stop_emails' ) .
+			'">' . __('Settings') . '</a>';
+		return $links;
+	}
 }
 
 new Fe_Stop_Emails;
