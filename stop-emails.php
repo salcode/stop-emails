@@ -41,7 +41,7 @@ class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
 	 * Replacement send() method that does not send.
 	 *
 	 * Unlike the PHPMailer send method,
-	 * this method never class the method postSend(),
+	 * this method never calls the method postSend(),
 	 * which is where the email is actually sent
 	 *
 	 * @since 0.8.0
