@@ -92,6 +92,7 @@ class Fe_Stop_Emails {
 		$this->add_hooks();
 
 		$this->settings_page();
+
 	}
 
 	/**
@@ -103,6 +104,7 @@ class Fe_Stop_Emails {
 		add_action( 'plugins_loaded', array( $this, 'replace_phpmailer' ) );
 		add_action( 'fe_stop_emails_log', array( $this, 'log_to_php_error_log' ) );
 		add_action( 'admin_notices', array( $this, 'warning' ) );
+		add_action('init', array( $this, 'load_textdomain' ) );
 	}
 
 	/**
@@ -247,6 +249,18 @@ class Fe_Stop_Emails {
 			admin_url( 'options-general.php?page=fe_stop_emails' ) .
 			'">' . __('Settings') . '</a>';
 		return $links;
+	}
+
+	/**
+	 * Load textdomain for translations
+	 *
+	 * @since 0.8.0
+	 */
+	public function load_textdomain() {
+		$domain = 'stop-emails';
+		$plugin_rel_path = dirname(plugin_basename(__FILE__)) . '/languages';
+
+		load_plugin_textdomain( $domain, false, $plugin_rel_path );
 	}
 }
 
