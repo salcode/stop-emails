@@ -2,8 +2,8 @@
 Contributors: salcode
 Tags: email, development
 Requires at least: 3.6
-Tested up to: 4.0.1
-Stable tag: 0.7.1
+Tested up to: 4.1
+Stable tag: 0.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,11 @@ this helpful when setting up an existing site locally.
 
 == Changelog ==
 
+= 0.8.0 =
+* Overhaul of plugin includes: fixing issue with plugin not stopping emails, moving to a class structure, changing email stopping
+behavior to use the same technique as WordPress core tests, improved inline documentation,
+addtion of phpunit tests. Introduces a breaking change with https://github.com/salcode/stop-emails-logger
+
 = 0.7.1 =
 * Added check for supporting files before loading them.  Since the primary functionality
 is in stop-emails.php, adding this check allows stop-emails.php to be used in the
@@ -113,6 +118,9 @@ log the blocked emails in the php_error.log
 * First release
 
 == Upgrade Notice ==
+
+= 0.8.0 =
+Important - fixes issues with plugin not Stopping Emails.
 
 = 0.7.0 =
 Minor update that adds support for extended logging.  See [Stop Emails Logger](https://github.com/salcode/stop-emails-logger).
