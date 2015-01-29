@@ -49,8 +49,9 @@ class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
 	 */
 	function send() {
 		try {
-			if ( ! $this->preSend() )
+			if ( ! $this->preSend() ) {
 				return false;
+			}
 
 			$this->mock_sent[] = array(
 				'to'     => $this->to,
