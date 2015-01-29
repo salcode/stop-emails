@@ -53,13 +53,18 @@ class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
 				return false;
 			}
 
-			$this->mock_sent[] = array(
+			$mock_email = array(
 				'to'     => $this->to,
 				'cc'     => $this->cc,
 				'bcc'    => $this->bcc,
 				'header' => $this->MIMEHeader,
 				'body'   => $this->MIMEBody,
 			);
+
+			$this->mock_sent[] = $mock_email;
+
+			// hook to allow logging
+			do_action( 'fe_stop_emails_log', $mock_email );
 
 			return true;
 		} catch ( phpmailerException $e ) {
