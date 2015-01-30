@@ -1,8 +1,8 @@
 <?php
 /**
  * Admin Settings Page for Stop Emails Plugin
- * Value set is
- * @fe_stop_emails_options a serialized array
+ * Value set is fe_stop_emails_options a
+ * serialized array
  */
 
 // Add a menu for our option page
