@@ -1,0 +1,93 @@
+# Copyright (C) 2014 Stop Emails
+# This file is distributed under the same license as the Stop Emails package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Stop Emails 0.5.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/stop-emails\n"
+"POT-Creation-Date: 2014-03-06 11:19:27+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-11-23 10:04-0500\n"
+"Last-Translator: ilGhera <info@ilghera.com>\n"
+"X-Generator: Poedit 1.8.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it\n"
+"Language-Team: \n"
+
+#. Plugin Name of the plugin/theme
+#: lib/admin-settings.php:12 lib/admin-settings.php:13
+msgid "Stop Emails"
+msgstr "Blocca invio Email"
+
+#: lib/admin-settings.php:25
+msgid "Stop Emails:"
+msgstr "Blocca invio Email:"
+
+#: lib/admin-settings.php:47
+msgid "Email Logging"
+msgstr "Registrazione delle mail"
+
+#: lib/admin-settings.php:53
+msgid "Log Emails"
+msgstr "Registra le Email"
+
+#: lib/admin-settings.php:63
+msgid ""
+"The Stop Emails plugin has the option to log stopped emails to the PHP error "
+"log."
+msgstr "Stop Emails può registrare le email bloccate nell'Error Log PHP"
+
+#: lib/admin-settings.php:83
+msgid "Disable Logging"
+msgstr "Disabilita la registrazione nel log"
+
+#: lib/admin-settings.php:90
+msgid "Log stopped emails to the PHP Error Log"
+msgstr "Registra le email bloccate nell' Error Log PHP"
+
+#: stop-emails.php:62
+msgid "To: "
+msgstr "A:"
+
+#: stop-emails.php:72
+msgid "From: "
+msgstr "Da:"
+
+#: stop-emails.php:75
+msgid "Subject: "
+msgstr "Soggetto:"
+
+#: stop-emails.php:118
+msgid "Logging Disabled Emails"
+msgstr "Registrazione Email disabilitate"
+
+#: stop-emails.php:120
+msgid "Emails Disabled"
+msgstr "Email disabilitate"
+
+#: stop-emails.php:125
+msgid ""
+"The Stop Emails plugin is currently active, which will prevent any emails "
+"from being sent.  "
+msgstr "Il plugin Stop Emails è attivo, nessuna email verrà inviata."
+
+#: stop-emails.php:126
+msgid "To send emails, disable the plugin."
+msgstr "Per inviare email, disabilita il plugin."
+
+#. Plugin URI of the plugin/theme
+msgid "http://salferrarello.com/stop-emails-wordpress-plugin/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Stops outgoing emails sent using wp_mail() function"
+msgstr "Blocca l'invio di email inviate con la funzione wp_mail()"
+
+#. Author of the plugin/theme
+msgid "Sal Ferrarello"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://salferrarello.com/"
+msgstr ""
