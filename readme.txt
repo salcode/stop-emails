@@ -2,8 +2,8 @@
 Contributors: salcode
 Tags: email, development
 Requires at least: 3.6
-Tested up to: 4.2
-Stable tag: 1.0.1
+Tested up to: 4.4
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ Please report bugs at https://github.com/salcode/stop-emails/issues
 
 == Changelog ==
 
+= 1.1.0 =
+* Add Italian translation (it_IT), thanks to Andrea Gherardi https://twitter.com/ilghera_TP
+
 = 1.0.1 =
 * No changes to code functionality
 * "Tested Up To:" version bump to 4.2
@@ -139,6 +142,9 @@ log the blocked emails in the php_error.log
 * First release
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Add Italian translation
 
 = 1.0.1 =
 No code changes. Documentation update, "Tested To" update, and version bump to 1.0 based on future release plans.
