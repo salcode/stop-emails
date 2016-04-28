@@ -2,8 +2,8 @@
 Contributors: salcode
 Tags: email, development
 Requires at least: 3.6
-Tested up to: 4.4
-Stable tag: 1.1.0
+Tested up to: 4.5
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -90,6 +90,9 @@ Please report bugs at https://github.com/salcode/stop-emails/issues
 
 == Changelog ==
 
+= 1.2.0 =
+* Add filter to force BuddyPress to use wp_mail() rather than its own BP_PHPMailer class
+
 = 1.1.0 =
 * Add Italian translation (it_IT), thanks to Andrea Gherardi https://twitter.com/ilghera_TP
 
@@ -142,6 +145,9 @@ log the blocked emails in the php_error.log
 * First release
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+* Add filter to stop BuddyPress emails, previously not all were stopped
 
 = 1.1.0 =
 Add Italian translation
