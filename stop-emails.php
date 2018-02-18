@@ -176,10 +176,11 @@ class Fe_Stop_Emails {
 	 * @since 0.8.0
 	 */
 	public function log_to_php_error_log( $mock_email ) {
-		if ( $this->should_emails_be_logged_to_php_error_log() ) {
-			$text = $this->mock_email_to_text( $mock_email );
-			error_log( $text );
+		if ( ! $this->should_emails_be_logged_to_php_error_log() ) {
+			return;
 		}
+		$text = $this->mock_email_to_text( $mock_email );
+		error_log( $text );
 	}
 
 	/**
