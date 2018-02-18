@@ -179,6 +179,10 @@ class Fe_Stop_Emails {
 		if ( ! $this->should_emails_be_logged_to_php_error_log() ) {
 			return;
 		}
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			WP_CLI::warning( 'Stop Emails: Not logging email to error log, because WP CLI is being used.' );
+			return;
+		}
 		$text = $this->mock_email_to_text( $mock_email );
 		error_log( $text );
 	}
