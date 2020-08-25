@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 register_deactivation_hook( __FILE__, array( 'Fe_Stop_Emails', 'on_deactivation' ) );
 
 // Load PHPMailer class, so we can subclass it.
-require_once ABSPATH . WPINC . '/class-phpmailer.php';
+class Fe_Stop_Emails_PHPMailer extends PHPMailer {}
 
 /**
  * Subclass of PHPMailer to prevent Sending.
@@ -33,7 +33,7 @@ require_once ABSPATH . WPINC . '/class-phpmailer.php';
  * @since 0.8.0
  * @see PHPMailer
  */
-class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
+class Fe_Stop_Emails_Fake_PHPMailer extends Fe_Stop_Emails_PHPMailer {
 	/**
 	 * Mock sent email.
 	 *
