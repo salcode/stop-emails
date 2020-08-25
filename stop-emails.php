@@ -283,6 +283,16 @@ class Fe_Stop_Emails {
 	public static function on_deactivation() {
 		delete_option( 'fe_stop_emails_options' );
 	}
+
+	/**
+	 * WordPress core version is less than 5.5
+	 *
+	 * @since 1.3.0
+	 * @return bool WordPress core version is less than 5.5
+	 */
+	public static function is_pre_wp_5_5() {
+		return version_compare( get_bloginfo( 'version' ), '5.5-alpha', '<' );
+	}
 }
 
 new Fe_Stop_Emails;
