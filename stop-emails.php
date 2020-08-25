@@ -19,8 +19,16 @@ if ( ! defined( 'WPINC' ) ) {
 
 register_deactivation_hook( __FILE__, array( 'Fe_Stop_Emails', 'on_deactivation' ) );
 
-// Load PHPMailer class, so we can subclass it.
-class Fe_Stop_Emails_PHPMailer extends PHPMailer {}
+if ( Fe_Stop_Emails::is_pre_wp_5_5() ) {
+	// Legacy: Load PHPMailer class, so we can subclass it.
+	require_once ABSPATH . WPINC . '/class-phpmailer.php';
+	class Fe_Stop_Emails_PHPMailer extends PHPMailer {}
+} else {
+	// Modern: Load PHPMailer class, so we can subclass it.
+	require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+	require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
+	class Fe_Stop_Emails_PHPMailer extends PHPMailer\PHPMailer\PHPMailer {}
+}
 
 /**
  * Subclass of PHPMailer to prevent Sending.
