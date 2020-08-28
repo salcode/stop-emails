@@ -19,8 +19,16 @@ if ( ! defined( 'WPINC' ) ) {
 
 register_deactivation_hook( __FILE__, array( 'Fe_Stop_Emails', 'on_deactivation' ) );
 
-// Load PHPMailer class, so we can subclass it.
-require_once ABSPATH . WPINC . '/class-phpmailer.php';
+if ( Fe_Stop_Emails::is_pre_wp_5_5() ) {
+	// Legacy: Load PHPMailer class, so we can subclass it.
+	require_once ABSPATH . WPINC . '/class-phpmailer.php';
+	class Fe_Stop_Emails_PHPMailer extends PHPMailer {}
+} else {
+	// Modern: Load PHPMailer class, so we can subclass it.
+	require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
+	require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
+	class Fe_Stop_Emails_PHPMailer extends PHPMailer\PHPMailer\PHPMailer {}
+}
 
 /**
  * Subclass of PHPMailer to prevent Sending.
@@ -33,7 +41,7 @@ require_once ABSPATH . WPINC . '/class-phpmailer.php';
  * @since 0.8.0
  * @see PHPMailer
  */
-class Fe_Stop_Emails_Fake_PHPMailer extends PHPMailer {
+class Fe_Stop_Emails_Fake_PHPMailer extends Fe_Stop_Emails_PHPMailer {
 	/**
 	 * Mock sent email.
 	 *
@@ -282,6 +290,16 @@ class Fe_Stop_Emails {
 	 */
 	public static function on_deactivation() {
 		delete_option( 'fe_stop_emails_options' );
+	}
+
+	/**
+	 * WordPress core version is less than 5.5
+	 *
+	 * @since 1.3.0
+	 * @return bool WordPress core version is less than 5.5
+	 */
+	public static function is_pre_wp_5_5() {
+		return version_compare( get_bloginfo( 'version' ), '5.5-alpha', '<' );
 	}
 }
 
