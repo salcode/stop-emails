@@ -65,7 +65,7 @@ doing to cause emails to still be sent.
 Unfortunately in either of these cases, this plugin will not be able to stop
 the email.
 
-**Known Incompatible Plugins**
+= Known Incompatible Plugins? =
 
 A list of Known Incompatible Plugins is available at [https://github.com/salcode/stop-emails/wiki/Known-Incompatible-Plugins](https://github.com/salcode/stop-emails/wiki/Known-Incompatible-Plugins).
 
